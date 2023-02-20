@@ -1,0 +1,10 @@
+id,country,state,amount,trans_date
+121,US,approved,1000,18-12-2018
+122,US,declined,2000,19-12-2018
+123,US,approved,2000,01-01-2019
+124,DE,approved,2000,07-01-2019
+125,IND,approved,3000,20-01-2019
+125,IND,approved,4000,28-01-2019
+125,IND,declined,2000,29-01-2019
+125,IND,approved,3000,20-11-2019
+125,IND,approved,4000,20-01-2020
