@@ -10,6 +10,9 @@ class Bank_Account_Summary {
   users_input_df.show()
   transactions_input_df.show()
 
+
+
+
   //distributing dataframe between paid_by ,paid_to and later merging to get req columns
   val paid_df = transactions_input_df.select(col("trans_id").alias("transaction_id"), col("paid_by").alias("sender"), col("amount").alias("sender_amount"))
   val received_df = transactions_input_df.select(col("trans_id"), col("paid_to").alias("receiver"), col("amount").alias("receiver_amount"))
