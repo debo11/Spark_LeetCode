@@ -1,0 +1,5 @@
+customer_id,customer_name,email
+1,Alice,alice@leetcode.com
+2,Bob,bob@leetcode.com
+13,John,john@leetcode.com
+6,Alex,alex@leetcode.com
