@@ -6,7 +6,7 @@ import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions.{col, dense_rank}
 
 class Find_the_Start_and_End_Number_of_Continuous_Ranges {
-  val spark = SparkSession.builder.master("local").appName("Find the Start and End Number of Continuous Ranges).getOrCreate()
+  val spark = SparkSession.builder.master("local").appName("Find the Start and End Number of Continuous Ranges").getOrCreate()
 
   //reading inputs
   val logs_input_df = spark.read.format("csv").option("header", "true").option("InferSchema", "true").load("C:\\Users\\DEBASHISH\\LeetCode\\BD LeetCode\\src\\resources/logs_v2.csv")
