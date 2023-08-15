@@ -24,7 +24,7 @@ class Status_of_Flight_Tickets {
     info("finding out confirmed and waitinglist passengers")
     val status_df = passenger_ranking_df.withColumn("status", when(col("ranking") <= col("capacity"), lit("Confimed")).otherwise("Waitlist"))
     val output_df = status_df.orderBy("passenger_id").select("passenger_id","status")
-    output_df
+    passenger_ranking_df
 
 
   }
