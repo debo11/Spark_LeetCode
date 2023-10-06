@@ -1,7 +1,7 @@
 package com.bigdata.leetcode
 
 import org.apache.ivy.util.Message.info
-import org.apache.spark.sql.functions.{col, collect_list}
+import org.apache.spark.sql.functions.{array, array_sort, col, collect_list, concat}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 class unique_routes {
@@ -14,9 +14,10 @@ class unique_routes {
 
   def unique_routes(routes_input_df: DataFrame): DataFrame = {
     info("adding both columns value in list")
-    val combination_df = routes_input_df.withColumn("combination", collect_list(col("src")))
-    combination_df
-
+    val combination_df = routes_input_df.select(col("SRC"),col("DEST"), concat(array(col("SRC"),col("DEST")) ).as("coll_list"))
+    val result_df = combination_df.select(col("SRC"),col("DEST"),array_sort(col("coll_list")).as("coll_list2"))
+    val output_df = result_df.dropDuplicates("coll_list2")
+    result_df
   }
 
 
