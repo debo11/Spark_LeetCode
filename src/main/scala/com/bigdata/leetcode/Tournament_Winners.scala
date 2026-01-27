@@ -45,7 +45,7 @@ object Tournament_Winners {
       )
 
     // ==============================================
-    // Single aggregation instead of 2 + union + agg
+    // Single aggregation
     // ==============================================
     val totalScorePerPlayerDF = normalizedScoresDF
       .groupBy("player")
@@ -64,7 +64,7 @@ object Tournament_Winners {
     val scoreWindow = Window.partitionBy("group_id").orderBy(desc("total_score"), asc("player_id"))
 
     val winnersDF = joinedDF
-      .withColumn("rank", row_number().over(scoreWindow))
+      .withColumn("rank", dense_rank().over(scoreWindow))
       .filter(col("rank") === 1)
       .select("group_id", "player_id")
 
