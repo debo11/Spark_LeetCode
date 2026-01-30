@@ -7,11 +7,9 @@ object find_the_quiet_students_in_all_exams {
   def main(args: Array[String]): Unit = {
 
     val spark = SparkSession.builder()
-      .appName("Find the Quiet Students in All Exams - Ultra Optimized")
+      .appName("Find the Quiet Students in All Exams")
       .master("local[*]")
       .getOrCreate()
-
-    spark.sparkContext.setLogLevel("ERROR")
 
     val basePath = "C:/Users/DEBASHISH/LeetCode/BD LeetCode/src/resources/"
 
